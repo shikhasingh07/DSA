@@ -1,3 +1,4 @@
+<<<<<<< HEAD:DSA/ArrayHashMap/128.js
 var longestConsecutive = function (nums) {
   let set = new Set();
 
@@ -21,3 +22,8 @@ var longestConsecutive = function (nums) {
 };
 let nums = [1, 2, 3, 4, 100, 200];
 console.log(longestConsecutive(nums));
+=======
+var longestConsecutive = function(nums) {
+    
+};
+>>>>>>> fec6dc5b0c32371ea1b56795389c77406ba1920d:ArrayHashMap/128.js
