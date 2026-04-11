@@ -1,0 +1,336 @@
+# UI Interview Prep — Questions & Hints
+> Format: Questions only + directional hints. No code answers unless you ask.
+> Your stack context: React.js · TypeScript · Redux · Three.js · Micro Frontends · Web Workers
+
+---
+
+## EASY — Core Foundations
+
+### HTML & Accessibility
+
+1. **What is the difference between `<section>`, `<article>`, `<div>`, and `<main>`?**
+   > Hint: Think about semantics vs. layout containers. Which ones have implicit ARIA roles?
+
+2. **What is `aria-label` vs `aria-labelledby` vs `aria-describedby`?**
+   > Hint: One points to an element, one embeds text directly — when would each be more appropriate?
+
+3. **How does a screen reader decide what to read aloud on a page?**
+   > Hint: Think about the accessibility tree, focus order, and landmark roles.
+
+4. **What does `tabindex="-1"` do vs `tabindex="0"`?**
+   > Hint: One manages programmatic focus, the other adds to the natural tab sequence.
+
+5. **What are the key WCAG 2.1 AA criteria for color contrast?**
+   > Hint: There are different ratios for normal text, large text, and non-text content.
+
+---
+
+### CSS Fundamentals
+
+6. **Explain the CSS box model. What does `box-sizing: border-box` change?**
+   > Hint: Draw the layers mentally — content, padding, border, margin.
+
+7. **What is specificity and how is it calculated?**
+   > Hint: Think inline styles, IDs, classes/pseudo-classes, elements — assign a weight to each.
+
+8. **What is the difference between `position: relative`, `absolute`, `fixed`, and `sticky`?**
+   > Hint: What is the "containing block" for each? What triggers sticky to stop?
+
+9. **How does `z-index` actually work — why doesn't it always work as expected?**
+   > Hint: Stacking contexts. Which CSS properties create a new stacking context?
+
+10. **What is BEM naming convention and why is it useful?**
+    > Hint: Block, Element, Modifier. How does it prevent CSS specificity wars in large codebases?
+
+---
+
+### JavaScript Fundamentals
+
+11. **What is the difference between `==` and `===`?**
+    > Hint: Type coercion. What are the gotchas with `null == undefined`?
+
+12. **Explain `var`, `let`, and `const` — hoisting, scope, TDZ.**
+    > Hint: Temporal Dead Zone applies to `let`/`const`. How is function scope different from block scope?
+
+13. **What is closure? Give a practical use case.**
+    > Hint: A function "remembers" its lexical environment. Think event handlers, memoization, or module pattern.
+
+14. **What is the difference between `null`, `undefined`, and undeclared?**
+    > Hint: `typeof` gives different results. Only one throws a ReferenceError.
+
+15. **How does `Array.map()` differ from `Array.forEach()`?**
+    > Hint: Return value. Which one is chainable?
+
+16. **What does `Promise.all()` do vs `Promise.allSettled()`?**
+    > Hint: One short-circuits on rejection. The other waits for all — what does it return for each?
+
+17. **What is event bubbling and event capturing?**
+    > Hint: DOM events travel in two phases. `addEventListener`'s third argument controls which.
+
+18. **What is `debounce` vs `throttle`?**
+    > Hint: One delays until idle, one limits frequency. When would you use each in a search input vs scroll handler?
+
+---
+
+## MEDIUM — React, TypeScript, State, Performance
+
+### React Core
+
+19. **Explain the React reconciliation algorithm (diffing). How does the `key` prop help?**
+    > Hint: React walks two virtual DOM trees. Same type = update. Different type = unmount + remount. Keys identify list items across renders.
+
+20. **What are controlled vs uncontrolled components?**
+    > Hint: Where does the source of truth live — React state or the DOM?
+
+21. **When does `useEffect` run? What are all the dependency array cases?**
+    > Hint: No array = every render. Empty array = once on mount. With deps = when deps change. Return = cleanup.
+
+22. **What is the problem with stale closures in React hooks?**
+    > Hint: A function captures the value of a variable at the time it was created. Timer + state is the classic example.
+
+23. **Explain `useMemo` vs `useCallback`. When is each an optimization vs a premature one?**
+    > Hint: `useMemo` memoizes a computed value, `useCallback` memoizes a function reference. When does the re-creation actually cost something?
+
+24. **What is React context? What problem does it solve and when should you NOT use it?**
+    > Hint: Great for global state reads. Bad for high-frequency updates — why?
+
+25. **Explain the difference between `useLayoutEffect` and `useEffect`.**
+    > Hint: Timing — one fires synchronously after DOM mutations before the browser paints. When does this matter?
+
+26. **What is the React Fiber architecture? What problem did it solve over the old stack reconciler?**
+    > Hint: Work can be paused, prioritized, and resumed. Think time-slicing and Concurrent Mode.
+
+27. **How does `React.memo` work? When does it fail to prevent re-renders?**
+    > Hint: Shallow comparison. What happens when you pass an object literal or inline function as a prop?
+
+28. **What is lifting state up? When would you use Zustand or Redux instead?**
+    > Hint: Prop drilling becomes painful at a certain depth. What signals that local state management won't scale?
+
+---
+
+### TypeScript
+
+29. **What is the difference between `interface` and `type` in TypeScript?**
+    > Hint: Interfaces are extendable via declaration merging. Types can express union types. Practical preference?
+
+30. **What are generics and why are they useful?**
+    > Hint: Write functions/components that work with many types while preserving type safety. Think `Array<T>`.
+
+31. **What is `unknown` vs `any`? Which is safer?**
+    > Hint: `unknown` forces you to narrow the type before using it. `any` opts out of type checking entirely.
+
+32. **What are discriminated unions? Give a use case.**
+    > Hint: A shared literal field lets TypeScript narrow the type in a switch/if. Think API response states: `loading | success | error`.
+
+33. **What is `keyof` and how is it used?**
+    > Hint: Gets the union of keys of a type. Useful for creating type-safe property accessors.
+
+34. **What is `Partial<T>`, `Required<T>`, `Pick<T, K>`, `Omit<T, K>`?**
+    > Hint: Utility types. What type do you get after applying each? Real-world: form state vs submitted data.
+
+35. **How do you type a React component's props, including children?**
+    > Hint: `React.FC<Props>` vs explicit return type. What's the difference with `React.PropsWithChildren`?
+
+---
+
+### Performance
+
+36. **What is code splitting and how do you do it in React?**
+    > Hint: `React.lazy` + `Suspense`. What is the difference between route-level and component-level splitting?
+
+37. **What is a paint bottleneck vs a layout bottleneck in the browser?**
+    > Hint: Layout (reflow) = geometry recalc. Paint = pixel fill. Composite = GPU. Which CSS properties trigger each?
+
+38. **What is the difference between `will-change` and `transform: translateZ(0)` for GPU promotion?**
+    > Hint: Both promote to a new compositing layer. When does this help and when does it waste GPU memory?
+
+39. **What are Web Workers and what problem do they solve?**
+    > Hint: JavaScript is single-threaded. Workers run on a separate thread. What can they NOT access?
+
+40. **How do you measure frontend performance? What metrics matter?**
+    > Hint: Core Web Vitals — LCP, INP, CLS. What does each measure and what's the "good" threshold?
+
+41. **What is virtualization (windowing) in list rendering?**
+    > Hint: Only render what's in the viewport. How does `react-window` / `react-virtual` work conceptually?
+
+42. **Explain lazy loading images vs eager loading. What is the `loading="lazy"` attribute?**
+    > Hint: Native browser feature. When does it not work (above-the-fold)?
+
+---
+
+### State Management
+
+43. **What problem does Redux solve that React state cannot?**
+    > Hint: Single source of truth, predictability, dev tooling (time-travel debugging). When is it overkill?
+
+44. **What is the Redux data flow? (Action → Reducer → Store → View)**
+    > Hint: Unidirectional. What makes reducers "pure functions"? Why does immutability matter?
+
+45. **What is Redux Toolkit and how does it simplify Redux?**
+    > Hint: `createSlice`, `createAsyncThunk`. How does Immer let you write "mutating" code safely?
+
+46. **What is React Query / TanStack Query and how is it different from Redux for server state?**
+    > Hint: Separation of concerns — server state (remote, async) vs client state (local, sync). Caching, stale-while-revalidate.
+
+---
+
+## HARD — Advanced, Architecture, System Design
+
+### Micro Frontends
+
+47. **What are micro frontends and what problems do they solve?**
+    > Hint: Think about team autonomy, independent deployments, and tech stack diversity. What are the tradeoffs?
+
+48. **What is Module Federation in Webpack 5? How does runtime sharing of code work?**
+    > Hint: One app exposes modules, another consumes them at runtime without bundling. What happens with shared dependencies like React?
+
+49. **How do you handle shared state between micro frontends?**
+    > Hint: Custom events, shared store via CDN, URL as state, or event bus. What are the tradeoffs of each?
+
+50. **How do you handle CSS isolation in micro frontends?**
+    > Hint: Shadow DOM, CSS modules, scoped namespaces, or runtime style injection. What breaks with Shadow DOM?
+
+51. **How do you handle authentication across micro frontends?**
+    > Hint: Token storage, shared session, or a shell app that distributes auth context.
+
+---
+
+### Advanced React Patterns
+
+52. **What is the compound component pattern? Give an example.**
+    > Hint: Components share implicit state via context. Think `<Select>` / `<Option>` or `<Tabs>` / `<Tab>`.
+
+53. **What is the render props pattern vs custom hooks? Which do you prefer and why?**
+    > Hint: Both share stateful logic. Hooks are generally cleaner. When might render props still be useful?
+
+54. **What is the Provider pattern and how does it differ from a simple context?**
+    > Hint: Separates context creation, state management, and consumption. Think testability and reusability.
+
+55. **What is Suspense for data fetching (Concurrent React)? How is it different from useEffect fetching?**
+    > Hint: Component "throws" a Promise. React catches it, shows fallback, then re-renders when resolved. Think waterfall vs parallel.
+
+56. **How do you implement an error boundary? What can it NOT catch?**
+    > Hint: Class component with `componentDidCatch` / `getDerivedStateFromError`. It cannot catch async errors, event handlers, or errors in the boundary itself.
+
+---
+
+### Browser & Web APIs
+
+57. **Explain the critical rendering path. How do you optimize it?**
+    > Hint: HTML → DOM, CSS → CSSOM → Render Tree → Layout → Paint → Composite. What blocks rendering?
+
+58. **What is CORS and how does it work?**
+    > Hint: Browser security model. Preflight requests, `Access-Control-Allow-Origin`. What does the browser check vs the server?
+
+59. **What is the difference between `localStorage`, `sessionStorage`, `cookies`, and `IndexedDB`?**
+    > Hint: Think persistence, size limits, accessibility from JS vs HTTP headers, and use cases.
+
+60. **How does HTTP/2 differ from HTTP/1.1 from a frontend performance perspective?**
+    > Hint: Multiplexing, header compression, server push. Why does bundling everything into one file matter less with HTTP/2?
+
+61. **What is a service worker and how does it enable offline-first apps?**
+    > Hint: Intercepts network requests, can serve from cache. Lifecycle: install → activate → fetch. What is a cache-first strategy?
+
+62. **What is the difference between `requestAnimationFrame` and `setTimeout` for animations?**
+    > Hint: `rAF` is synced to the browser's repaint cycle (~16ms at 60fps). `setTimeout` is not.
+
+---
+
+### Three.js / WebGL (Your Speciality)
+
+63. **What is the difference between the scene graph in Three.js and the DOM?**
+    > Hint: Both are trees. Three.js uses a 3D spatial hierarchy. How does `Object3D.matrixWorldNeedUpdate` relate to performance?
+
+64. **What is a draw call and why does minimizing draw calls matter for WebGL performance?**
+    > Hint: Each draw call has CPU overhead to communicate with the GPU. How do `InstancedMesh` and geometry merging help?
+
+65. **How does `useFrame` in React Three Fiber differ from `useEffect`?**
+    > Hint: `useFrame` runs every animation frame inside the render loop. What should you NOT do inside it?
+
+66. **What is a texture atlas and why use one?**
+    > Hint: Reduces texture bind calls. Multiple sprites on one image, UV-mapped. Trade-off: harder to update individual textures.
+
+67. **How do you handle memory leaks in Three.js / R3F?**
+    > Hint: Geometries, materials, textures must be explicitly `.dispose()`d. R3F handles this for declarative objects — what about imperative ones?
+
+---
+
+### Testing
+
+68. **What is the difference between unit, integration, and E2E tests? What should you write most of?**
+    > Hint: Testing pyramid. Unit tests are fast/cheap. E2E are slow/expensive. Where is the sweet spot for React components?
+
+69. **What does React Testing Library encourage over Enzyme?**
+    > Hint: Test behavior, not implementation. Query by accessible roles, not class names.
+
+70. **How do you test a component that uses `useEffect` with an API call?**
+    > Hint: Mock the fetch/axios call. Use `waitFor` / `findBy` for async assertions. What does `act()` do?
+
+71. **What is snapshot testing? When is it useful vs harmful?**
+    > Hint: Captures the rendered output. Easy to write, easy to break, easy to blindly update. When does it add real value?
+
+---
+
+## AI IN UI — Emerging Topics
+
+### AI-Powered Frontend
+
+72. **What is retrieval-augmented generation (RAG) and how could it power a UI feature?**
+    > Hint: Combine LLM with a vector search over your own data. Think "ask your docs" chatbots or smart search.
+
+73. **How would you integrate a streaming LLM response into a React UI?**
+    > Hint: Server-Sent Events (SSE) or ReadableStream. How do you progressively update state as tokens arrive?
+
+74. **What are the UI/UX principles specific to AI features (chatbots, copilots, suggestions)?**
+    > Hint: Latency perception, skeleton loaders for streaming, confidence indicators, fallbacks for hallucinations, and graceful degradation.
+
+75. **What is an AI "tool call" and how does it relate to frontend events?**
+    > Hint: The LLM decides to invoke a function. Your frontend must handle structured JSON outputs and render them meaningfully.
+
+76. **How do you handle loading/error states for AI responses differently than regular API calls?**
+    > Hint: AI can be slow (seconds), partial (streaming), or wrong (hallucinations). Optimistic UI is risky. What patterns help?
+
+77. **What is prompt injection from a frontend security perspective?**
+    > Hint: User input becomes part of a prompt. Malicious input could manipulate the model. How do you sanitize/scope user input?
+
+78. **How would you design a UI component for displaying AI-generated content safely?**
+    > Hint: Markdown rendering (XSS risk), citation links, disclaimer labeling, copy-to-clipboard, regenerate actions.
+
+79. **What are vector embeddings and how could a frontend app use them?**
+    > Hint: Semantic search. You don't send keywords — you send meaning. How does similarity search differ from SQL LIKE queries?
+
+80. **What is the Vercel AI SDK or LangChain.js? What do they abstract away?**
+    > Hint: They handle streaming, tool calls, message history, and model switching. What would you have to manually implement without them?
+
+81. **How do you A/B test AI-generated UI copy or recommendations?**
+    > Hint: Treat AI output as a variant. Measure CTR, engagement, or task completion rate. How is this different from traditional A/B tests?
+
+---
+
+## BONUS — Architecture & Design
+
+82. **What is the difference between server-side rendering (SSR), static site generation (SSG), and client-side rendering (CSR)?**
+    > Hint: When is HTML generated? Who sends it? How does hydration work? What are the SEO/performance tradeoffs?
+
+83. **What are design tokens and how do they power a design system?**
+    > Hint: Primitive values (colors, spacing, typography) stored as named variables. How do themes (dark/light) map to token aliases?
+
+84. **How would you architect a reusable component library for a large org like Target?**
+    > Hint: Versioning strategy, peer dependencies, Storybook, design token integration, accessibility as default, tree-shaking.
+
+85. **What is the difference between feature flags and A/B testing?**
+    > Hint: Feature flags = binary on/off, often for rollout safety. A/B = percentage split for experimentation with measurement.
+
+86. **How do you approach performance budgets in CI/CD?**
+    > Hint: Bundle size limits, Lighthouse score thresholds. What happens when a PR exceeds the budget — block, warn, or notify?
+
+87. **What is tree-shaking and how does your module structure affect it?**
+    > Hint: Dead code elimination at bundle time. Requires ES modules (`import/export`). Side effects in `package.json`. Named vs default exports.
+
+88. **How does the browser's event loop work? What is the microtask queue vs the macrotask queue?**
+    > Hint: Microtasks (Promises, queueMicrotask) drain completely before the next macrotask (setTimeout, setInterval). How does this affect `async/await`?
+
+---
+
+*Total: 88 questions across Easy (18) · Medium (28) · Hard (24) · AI in UI (10) · Bonus Architecture (7)*
+*Weekly test schedule: See `weekly_test.md`*

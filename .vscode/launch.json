@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/DSA/BinarySearch/1539.js"
+            "program": "${file}"
         }
     ]
 }
