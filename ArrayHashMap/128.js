@@ -1,24 +1,18 @@
-<<<<<<< HEAD:DSA/ArrayHashMap/128.js
 var longestConsecutive = function (nums) {
-  let set = new Set();
-
-  for (let i of nums) {
-    set.add(i);
-  }
-
+  const set = new Set(nums);
   let max = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (!set.has(nums[i] - 1)) {
-      let length = 1;
-      while (set.has(nums[i] + length)) {
-        length++;
-      }
-      if (max < length) {
-        max = length;
-      }
+
+  for (const num of set) {
+    // Only start counting when `num` is the head of a sequence
+    if (!set.has(num - 1)) {
+      let len = 1;
+      while (set.has(num + len)) len++;
+      if (len > max) max = len;
     }
   }
+
   return max;
 };
-let nums = [1, 2, 3, 4, 100, 200];
-console.log(longestConsecutive(nums));
+
+// quick sanity check
+console.log(longestConsecutive([100, 4, 200, 1, 3, 2])); // 4
