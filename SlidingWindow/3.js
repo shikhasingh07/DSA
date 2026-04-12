@@ -1,21 +1,21 @@
-var lengthOfLongestSubstring = function(s) {
-    let total = 0; 
-    let i = 0; 
+var lengthOfLongestSubstring = function (s) {
+  let total = 0;
+  let max = 0;
 
-    let map = new Map(); 
-    
-    for (let max = 0; max < s.length; max++) {
-        let ch = s[max]; 
-        if (map.has(ch)) {
-            i = Math.max(map.get(ch) + 1, i);
-        }
+  let map = new Map();
 
-        map.set(ch, max);
-
-        total = Math.max(total, max - i + 1); 
+  for (let i = 0; i < s.length; i++) {
+    let ch = s[i];
+    if (map.has(ch)) {
+      max = Math.max(map.get(ch) + 1, max);
     }
 
-    return total; 
+    map.set(ch, i);
+
+    total = Math.max(total, i - max + 1);
+  }
+
+  return total;
 };
 
 console.log(lengthOfLongestSubstring("abcabcbb")); // Output: 3
