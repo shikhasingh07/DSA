@@ -1,16 +1,19 @@
 var topKFrequent = function (nums, k) {
-  let map = {};
+  const map = new Map();
 
-  for (let i of nums) {
-    map[i] = (map[i] || 0) + 1;
+  // Count frequencies
+  for (let num of nums) {
+    map.set(num, (map.get(num) || 0) + 1);
   }
 
-  let ans = Object.keys(map)
-    .sort((a, b) => map[b] - map[a])
-    .slice(0, k);
-  let number = ans.map((id) => Number(id));
-  return number;
+  const sorted = Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
+  
+  let result = [];
+  for(let i = 0 ; i < k; i++){
+    result.push(sorted[i][0]);
+  }
+
+  return result;
 };
-let nums = [1, 2, 1, 2, 1, 2, 3, 1, 3, 2];
-let k = 2;
-console.log(topKFrequent(nums, k));
+
+console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2));
