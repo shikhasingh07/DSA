@@ -72,6 +72,70 @@
 
 ---
 
+## Debounce & Throttling — Implementation Deep Dive
+
+### Easy
+
+**D1. What is debounce? What is throttle? When do you use each?**
+> Hint: Debounce = wait until idle (search input). Throttle = limit to once per interval (scroll, resize). What happens to intermediate calls in each?
+
+**D2. Implement a basic `debounce(fn, delay)` function.**
+> Hint: You need a timer. On each call, clear the previous timer and set a new one. The function only runs after `delay` ms of silence.
+
+**D3. Implement a basic `throttle(fn, limit)` function.**
+> Hint: You need a flag. On first call, run the function and set the flag. Ignore all calls until the limit passes, then reset.
+
+**D4. How would you debounce a search input in vanilla JS?**
+> Hint: Attach an `input` event listener. Debounce the API call, not the event itself. What cleans up the timer when the component is destroyed?
+
+---
+
+### Medium
+
+**D5. Implement debounce with a `leading` option (fire immediately on first call, then wait).**
+> Hint: Add a `leading` flag. On first call with no active timer, fire immediately. Then start the timer to reset. How does this differ from trailing-only?
+
+**D6. Implement `debounce` in React using `useRef` and `useCallback`.**
+> Hint: Store the timer in a `useRef` so it persists across renders without triggering re-renders. Why can't you store it in `useState`?
+
+**D7. How do you cancel a debounced function? Add a `.cancel()` method.**
+> Hint: Return an object (or augment the returned function) with a `cancel` property that calls `clearTimeout` on the stored timer.
+
+**D8. What is the memory leak risk with debounce/throttle in React? How do you fix it?**
+> Hint: If the component unmounts while a timer is pending, the timer fires and tries to update unmounted state. Fix with `useEffect` cleanup returning `clearTimeout`.
+
+**D9. Implement throttle using `requestAnimationFrame` instead of `setTimeout`.**
+> Hint: `rAF` fires ~60 times/second, synced to repaint. Set a flag to block repeated calls. Reset flag inside the `rAF` callback. Better than `setTimeout(fn, 16)` — why?
+
+**D10. Debounce vs throttle for these scenarios — which would you pick?**
+> - Window resize handler updating layout
+> - Search-as-you-type API call
+> - Button that submits a form
+> - Live mouse position tracker
+> - Auto-save in a text editor
+> Hint: Think about whether you want the LAST value (debounce) or REGULAR snapshots (throttle).
+
+---
+
+### Advanced
+
+**D11. Implement a full `debounce(fn, delay, { leading, trailing })` — lodash-style.**
+> Hint: `leading=true` fires on the first call. `trailing=true` fires after the last call. Both can be true simultaneously. What happens when both are true and only one call is made?
+
+**D12. Implement a full `throttle(fn, limit, { leading, trailing })` — lodash-style.**
+> Hint: Track `lastCallTime`. On each call, check if `now - lastCallTime >= limit`. Handle trailing by scheduling a timeout for the remaining time. Edge case: what if `leading=false` AND `trailing=false`?
+
+**D13. How would you implement a rate limiter that allows at most N calls per second?**
+> Hint: Maintain a queue of timestamps. On each call, prune timestamps older than 1 second. If queue length < N, allow the call. Otherwise, reject or queue it.
+
+**D14. How does lodash's `_.debounce` handle the `maxWait` option?**
+> Hint: `maxWait` forces execution even if the function keeps being called (prevents infinite deferral). Internally, it tracks `lastInvokeTime` and schedules a secondary timer. Where does debounce become throttle?
+
+**D15. You have a debounced function inside a React custom hook. How do you ensure the latest version of the callback is always used without resetting the debounce timer?**
+> Hint: Store the callback in a `useRef` and update it on every render. The debounced wrapper always calls `ref.current()` — so the timer doesn't reset, but the function is always fresh. This is the "stable ref" pattern.
+
+---
+
 ## MEDIUM — React, TypeScript, State, Performance
 
 ### React Core
