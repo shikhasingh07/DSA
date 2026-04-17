@@ -398,3 +398,112 @@
 
 *Total: 88 questions across Easy (18) · Medium (28) · Hard (24) · AI in UI (10) · Bonus Architecture (7)*
 *Weekly test schedule: See `weekly_test.md`*
+
+---
+
+## Machine Coding Round
+> Build a working component/feature in 45 mins. Judged on: correctness, code structure, edge cases, UX polish.
+
+### Easy Components (warm-up, 20-30 mins)
+
+**M1. Star Rating Component**
+- Clickable stars (1–5), hover highlight, selected state
+- > Hint: Track `hovered` and `selected` state separately. How do you handle the highlight on hover vs click?
+
+**M2. Accordion / FAQ Component**
+- Expand/collapse sections, only one open at a time
+- > Hint: Store which index is open. What changes when you click an already-open item?
+
+**M3. Progress Bar**
+- Animated progress bar with percentage display, configurable via props
+- > Hint: CSS width driven by state. How do you animate smoothly with `transition`?
+
+**M4. Toggle Switch**
+- Accessible on/off toggle with keyboard support
+- > Hint: `role="switch"`, `aria-checked`, handle `Space` key. How is this different from a checkbox?
+
+**M5. Modal / Dialog**
+- Open/close modal, close on backdrop click, trap focus inside, close on Escape
+- > Hint: Focus trap is the hard part. Which element gets focus when modal opens? What is `inert`?
+
+---
+
+### Medium Components (core interview level, 30-45 mins)
+
+**M6. Autocomplete / Search with Debounce**
+- Input → debounced API call → dropdown results → keyboard navigation (↑↓ Enter)
+- > Hint: Debounce the fetch. Store `results`, `activeIndex`, `isOpen` in state. Handle loading + empty states.
+
+**M7. Infinite Scroll List**
+- Load more items as user scrolls to bottom, loading spinner, no duplicate fetches
+- > Hint: `IntersectionObserver` on a sentinel element at the bottom. Track `page`, `isLoading`, `hasMore`.
+
+**M8. Drag and Drop List**
+- Reorder list items by dragging
+- > Hint: HTML5 drag events (`dragstart`, `dragover`, `drop`). Store `dragIndex`. Swap array items on drop.
+
+**M9. Multi-select Dropdown**
+- Searchable dropdown with checkboxes, selected tags shown, clear all button
+- > Hint: Store `selected` as a Set. Filter options by search string. Show selected as chips above input.
+
+**M10. Tab Component**
+- Tabs with active state, keyboard navigation (←→), lazy load tab content
+- > Hint: `role="tablist"`, `role="tab"`, `aria-selected`. Arrow keys change `activeTab`. Content renders only when tab is active.
+
+**M11. Form with Validation**
+- Multi-field form (name, email, password), inline validation, submit disabled until valid
+- > Hint: Validate on blur, show errors per field. Use a `errors` object in state. When is the form "dirty"?
+
+**M12. Toast / Notification System**
+- Show toasts (success/error/info), auto-dismiss after 3s, stack multiple, dismiss on click
+- > Hint: Store array of toasts with unique IDs. `setTimeout` per toast for auto-dismiss. Cleanup timeout on unmount.
+
+---
+
+### Hard Components (senior-level, 45-60 mins)
+
+**M13. Virtualized List**
+- Render only visible rows for a 10,000 item list (no library)
+- > Hint: Calculate `startIndex` and `endIndex` from `scrollTop` and `itemHeight`. Absolute position each visible row. Total height = `items.length * itemHeight`.
+
+**M14. Kanban Board**
+- Drag cards between columns (Todo/In Progress/Done), persist column state
+- > Hint: State is `{ [columnId]: Card[] }`. On drop, remove from source column, add to target. Handle drop on column vs drop on card.
+
+**M15. Rich Text Editor (basic)**
+- Bold, italic, underline buttons, contentEditable div, output HTML
+- > Hint: `document.execCommand` (legacy) or `Selection` + `Range` API. How do you check if selected text is already bold?
+
+**M16. Calendar / Date Picker**
+- Month view, navigate prev/next month, select a date, highlight today
+- > Hint: Generate days grid from `new Date(year, month, 1)`. Handle leading empty cells for first day of month offset.
+
+**M17. Polling Component**
+- Fetch data every N seconds, stop on unmount, show last updated time
+- > Hint: `setInterval` in `useEffect`, clear in cleanup. How do you avoid a fetch starting after unmount?
+
+---
+
+### JS Implementation (GFE-style, no framework)
+
+**M18. Implement `Promise.all()` from scratch**
+- > Hint: Return a new Promise. Track resolved count. Reject immediately on any rejection.
+
+**M19. Implement an Event Emitter (on, off, emit)**
+- > Hint: Store listeners in a Map of `event → [callbacks]`. `emit` calls all. `off` removes one.
+
+**M20. Implement `curry(fn)`**
+- > Hint: Return a function that accumulates args until `args.length >= fn.length`, then calls `fn`.
+
+**M21. Implement `pipe(...fns)` and `compose(...fns)`**
+- > Hint: `pipe` applies left to right, `compose` right to left. Both use `reduce`.
+
+**M22. Implement `memoize(fn)`**
+- > Hint: Cache results by args key. What do you use as the cache key for multiple args?
+
+**M23. Implement `classnames(...args)` utility**
+- > Hint: Handle strings, objects `{active: true}`, arrays. Filter falsy values, join with space.
+
+---
+
+*Machine coding tip: Always start by clarifying requirements, then state → render → events → edge cases → polish*
