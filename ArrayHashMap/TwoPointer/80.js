@@ -1,20 +1,15 @@
-var removeDuplicates = function(nums) {
-    
-    let j = 1 ; 
-    let count = 1 ; 
-    for (let i = 1 ; i < nums.length ; i++){
-        if(nums[i] === nums[i-1]){
-          count++; 
-        }else {
-            count = 1; 
-        }
+var removeDuplicates = function (nums) {
+  let s = 0,
+    f = 1;
 
-        if(count <= 2){
-            nums[j] = nums[i]; 
-            j++; 
-        }
+  while (f <= nums.length - 1) {
+    if (nums[f] !== nums[s - 1]) {
+      s++;
+      nums[s] = nums[f];
     }
-    return  j; 
+    f++;
+  }
+  return s+1;
 };
 
-console.log(removeDuplicates([1,1,1,2,2,3]))
+console.log(removeDuplicates([1, 1, 1, 2, 2, 3]));
