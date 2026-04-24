@@ -1,6 +1,7 @@
 # DSA Problem Checklist
 
 ## HashMap
+> Done ✅
 ### Easy
 - [x] 7. Happy Number
 - [x] 8. Missing Number
