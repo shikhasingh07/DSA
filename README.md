@@ -5,17 +5,20 @@
 5 YOE Frontend Developer preparing for Senior roles in the Indian tech market. Solving DSA problems in JavaScript, organized by pattern — not randomly.
 
 ---
-
 ## What's inside
-
 | Topic | Status |
 |-------|--------|
-| Arrays & HashMap | Done |
-| Two Pointers | In Progress |
-| Sliding Window | Up Next |
-| Binary Search | Partial |
-| Graphs | Planned |
-| Greedy | Planned |
+| Arrays & HashMap | Done ✅ |
+| Two Pointers | Done ✅ |
+| Sliding Window | Up Next 🎯 |
+| Prefix Sum | Pending |
+| Binary Search | Pending |
+| Strings | Pending |
+| Stack & Queue | Pending |
+| Trees (BFS/DFS) | Pending |
+| Heap / Priority Queue | Pending |
+| Graphs | Pending |
+| Dynamic Programming | Pending |
 
 ---
 
