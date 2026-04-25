@@ -1,14 +1,20 @@
-var containsNearbyDuplicate = function (nums, k) {
-    let map = new Map();
-    for(let i = 0 ; i <= nums.length  ;i ++){
-        if (map.has(nums[i])) {
-            //window size 
-            if (i - map.get(nums[i]) <= k) {
-                return true;
-            }
-           
+function containsNearbyDuplicate = (nums, k) => {
+        
+      let window = new Set(); 
+
+      for(let i = 0; i < nums.length ; i++){
+
+        if(window.has(nums[i])){
+          return true;
         }
-         map.set(nums[i], i);
-    }
-    return false;
-};
+
+        window.add(nums[i]);
+
+        if(window.size > k){
+          window.delete(nums[i-k]);
+        }
+      }
+      return false;
+}
+let nums = [2,1,2], k = 1;
+console.log(containsNearbyDuplicate(nums,k));

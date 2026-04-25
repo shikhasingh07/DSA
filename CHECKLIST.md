@@ -88,11 +88,11 @@
 
 ### Concepts to learn first
 - [x] Fixed size window
-- [ ] Variable size window (expand/shrink)
-- [ ] When to use HashMap inside window
+- [x] Variable size window (expand/shrink)
+- [x] When to use HashMap inside window
 
 ### Fixed Size Window
-- [ ] 219. Contains Duplicate II (Easy)
+- [x] 219. Contains Duplicate II (Easy)
 - [ ] 121. Best Time to Buy And Sell Stock (Easy)
 - [ ] 2379. Minimum Recolors to Get K Consecutive Black Blocks (Easy)
 - [ ] 1343. Number of Sub-arrays of Size K and Average >= Threshold (Medium)
