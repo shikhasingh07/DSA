@@ -93,7 +93,7 @@
 
 ### Fixed Size Window
 - [x] 219. Contains Duplicate II (Easy)
-- [ ] 121. Best Time to Buy And Sell Stock (Easy)
+- [x] 121. Best Time to Buy And Sell Stock (Easy)
 - [ ] 2379. Minimum Recolors to Get K Consecutive Black Blocks (Easy)
 - [ ] 1343. Number of Sub-arrays of Size K and Average >= Threshold (Medium)
 - [ ] 1052. Grumpy Bookstore Owner (Medium)
