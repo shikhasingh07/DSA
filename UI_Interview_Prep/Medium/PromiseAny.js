@@ -4,12 +4,12 @@ function promiseAny(iterable) {
   return new Promise((res, rej) => {
     if (iterable.length === 0) rej(new AggregateError([]));
 
-    iterable.forEach((element) => {
+    iterable.forEach((element ,index) => {
       Promise.resolve(element)
         .then(res)
         .catch((err) => {
           counter++;
-          error.push(err);
+          error[index] = err;
           if (counter === iterable.length) {
             rej(new AggregateError(error));
           }
