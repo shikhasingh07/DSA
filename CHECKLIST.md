@@ -96,8 +96,8 @@
 - [x] 121. Best Time to Buy And Sell Stock (Easy)
 - [x] 2379. Minimum Recolors to Get K Consecutive Black Blocks (Easy)
 - [x] 1343. Number of Sub-arrays of Size K and Average >= Threshold (Medium)
-- [ ] 1052. Grumpy Bookstore Owner (Medium)
-- [ ] 1456. Maximum Number of Vowels in a Substring of Given Length (Medium)
+- [x] 1052. Grumpy Bookstore Owner (Medium)
+- [x] 1456. Maximum Number of Vowels in a Substring of Given Length (Medium)
 - [ ] 2461. Maximum Sum of Distinct Subarrays With Length K (Medium)
 - [ ] 1652. Defuse the Bomb (Easy)
 

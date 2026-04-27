@@ -45,7 +45,7 @@
 - [x] useCounter (Easy)
 - [x] useCounter II (Easy)
 - [x] useCycle (Easy)
-- [] useArray (Medium)
+- [x] useArray (Medium)
 - [ ] useMap (Easy)
 - [ ] useSet (Easy)
 
