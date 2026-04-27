@@ -13,7 +13,6 @@
 | Arrays & HashMap | 14 | ✅ Done |
 | Two Pointers | 40+ | ✅ Done |
 | Sliding Window | 5 | 🔄 In Progress |
-| Prefix Sum | 0 | ⏳ Pending |
 | Binary Search | 20+ | ✅ Done |
 | Stack | 25+ | ✅ Done |
 | Tree | 5 | 🔄 In Progress |
