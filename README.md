@@ -13,14 +13,6 @@
 | Arrays & HashMap | 14 | ✅ Done |
 | Two Pointers | 40+ | ✅ Done |
 | Sliding Window | 5 | 🔄 In Progress |
-| Binary Search | 20+ | ✅ Done |
-| Stack | 25+ | ✅ Done |
-| Tree | 5 | 🔄 In Progress |
-| Heap | 2 | 🔄 In Progress |
-| Recursion & Backtracking | 30+ | ✅ Done |
-| Dynamic Programming | 18+ | 🔄 In Progress |
-| Graph | 15+ | 🔄 In Progress |
-| UI / Frontend Interview | — | 🔄 In Progress |
 
 ---
 
@@ -34,18 +26,6 @@ DSA/
 │   ├── Sorting/          # Sort-based problems
 │   └── TwoPointer/       # Two pointer patterns (sums, palindrome, merge...)
 ├── SlidingWindow/        # Fixed & variable size window problems
-├── BinarySearch/         # Standard search + search on answer
-├── Stack/                # Monotonic stack, expression eval, simulation
-├── Tree/                 # DFS, BFS, balanced trees
-├── Heap/                 # Min/max heap, K-th element problems
-├── Recursion/
-│   ├── Backtracking/     # Subsets, permutations, N-Queens
-│   └── DP/               # Memoization & tabulation
-├── Graph/
-│   ├── Traversal/        # BFS/DFS on graphs
-│   ├── GridTraversal/    # Matrix-based graph problems
-│   ├── Topological/      # Topological sort (Kahn's, DFS)
-│   └── WithoutTraversal/ # Union-Find, in-degree, edge problems
 └── UI_Interview_Prep/
     ├── JS/               # Closures, async, prototypes, etc.
     ├── React/            # Hooks, rendering, patterns
