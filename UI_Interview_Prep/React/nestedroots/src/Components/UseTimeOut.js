@@ -1,15 +1,16 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
-const useTimeOut = (callback , time) => {
-    const ref = useRef()
-    useEffect(()=>{
-        ref.current = callback; 
-    },[callback])
-    useEffect(() => {
-       const timeId = setTimeout(ref.current(),time)
-       return() => clearTimeout(timeId)
-    },[time])
+const useTimeout = (callback, time) => {
+  const ref = useRef();
 
-}
+  useEffect(() => {
+    ref.current = callback;
+  }, [callback]);
 
-export const useTimeOut
+  useEffect(() => {
+    const timeId = setTimeout(() => ref.current(), time);
+    return () => clearTimeout(timeId);
+  }, [time]);
+};
+
+export default useTimeout;

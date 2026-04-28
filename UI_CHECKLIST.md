@@ -9,10 +9,10 @@
 - [x] Promise.all (Medium)
 - [x] Throttle (Medium)
 - [x] Debounce (Medium)
-- [x] Promise.race (Easy) ← current
+- [x] Promise.race (Easy)
 - [x] Promise.any (Medium)
 - [ ] Map Async Limit (Medium)
-- [ ] useTimeout (Medium)
+- [x] useTimeout (Medium)
 
 ### Data Structures / OOP
 - [x] Event Emitter (Medium)
@@ -43,7 +43,7 @@
 ### Easy
 - [x] useBoolean (Easy)
 - [x] useCounter (Easy)
-- [x] useCounter II (Easy)
+- [ ] useCounter II (Easy)
 - [x] useCycle (Easy)
 - [x] useArray (Medium)
 - [ ] useMap (Easy)
@@ -51,7 +51,7 @@
 
 ### Medium
 - [x] useQuery (Medium)
-- [ ] useDebounce (Medium)
+- [x] useDebounce (Medium)
 - [ ] useLocalStorage (Medium)
 - [ ] useClickOutside (Medium)
 - [ ] useInterval (Medium)

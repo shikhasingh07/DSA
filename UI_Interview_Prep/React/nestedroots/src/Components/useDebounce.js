@@ -1,24 +1,19 @@
-import {useState , useEffect} from "react"; 
+import { useState, useEffect } from "react";
 
-function useDebounce = (value , dealy) => {
-    const [debounced , setDebounced] = useState(value); 
+const useDebounce = (value, delay) => {
+  const [debounced, setDebounced] = useState(value);
 
-    useEffect(() => {
-     const handler = setTimeout(() => {
-        setDebounced(value); 
-     },dealy); 
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebounced(value);
+    }, delay);
 
-     return () => {
-        clearTimeout(handler);
-     }
-    },[value,dealy])
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
 
-    return debounced;
-}
+  return debounced;
+};
 
-
-Array.prototype.myFn = function(callback , ...arg){
- for(let i = 0; i < this.length ; i++){
-   return callback(i , this , this[i]);
- }
-}
+export default useDebounce;
