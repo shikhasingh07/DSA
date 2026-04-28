@@ -43,7 +43,7 @@
 ### Easy
 - [x] useBoolean (Easy)
 - [x] useCounter (Easy)
-- [ ] useCounter II (Easy)
+- [x] useCounter II (Easy)
 - [x] useCycle (Easy)
 - [x] useArray (Medium)
 - [ ] useMap (Easy)
