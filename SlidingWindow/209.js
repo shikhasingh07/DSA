@@ -1,7 +1,7 @@
 var minSubArrayLen = function (target, nums) {
   // sum , result , left
   let sum = 0,
-    result = Infinity,
+    result = 0,
     left = 0;
 
   for (let right = 0; right < nums.length; right++) {
