@@ -1,5 +1,4 @@
 # DSA Problem Checklist
-
 ## HashMap
 > Done ✅
 ### Easy
@@ -21,7 +20,6 @@
 - [x] 2. Longest Duplicate Substring
 
 ---
-
 ## Two Pointers
 > Done ✅
 
@@ -82,7 +80,6 @@
 - [x] 42. Trapping Rain Water (Hard)
 
 ---
-
 ## Sliding Window
 > Next focus
 
@@ -114,7 +111,7 @@
 - [x] 424. Longest Repeating Character Replacement (Medium)
 - [x] 567. Permutation in String (Medium)
 - [x] 438. Find All Anagrams in a String (Medium)
-- [ ] 1248. Count Number of Nice Subarrays (Medium)
+- [x] 1248. Count Number of Nice Subarrays (Medium)
 - [ ] 713. Subarray Product Less Than K (Medium)
 - [ ] 930. Binary Subarrays with Sum (Medium)
 - [ ] 1358. Number of Substrings Containing All Three Characters (Medium)
@@ -133,7 +130,6 @@
 - [ ] 1425. Constrained Subsequence Sum (Hard)
 
 ---
-
 ## Greedy
 
 ### Concepts to learn first
@@ -234,7 +230,6 @@
 - [ ] 1074. Number of Submatrices That Sum to Target (Hard)
 
 ---
-
 ## Binary Search
 
 ### Concepts to learn first
@@ -276,7 +271,6 @@
 - [ ] 1095. Find in Mountain Array (Hard)
 
 ---
-
 ## Strings
 
 ### Easy
