@@ -112,8 +112,8 @@
 
 ### Variable Size Window — With HashMap
 - [x] 424. Longest Repeating Character Replacement (Medium)
-- [ ] 567. Permutation in String (Medium)
-- [ ] 438. Find All Anagrams in a String (Medium)
+- [x] 567. Permutation in String (Medium)
+- [x] 438. Find All Anagrams in a String (Medium)
 - [ ] 1248. Count Number of Nice Subarrays (Medium)
 - [ ] 713. Subarray Product Less Than K (Medium)
 - [ ] 930. Binary Subarrays with Sum (Medium)
