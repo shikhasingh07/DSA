@@ -111,7 +111,7 @@
 - [x] 2090. K Radius Subarray Averages (Medium)
 
 ### Variable Size Window — With HashMap
-- [ ] 424. Longest Repeating Character Replacement (Medium)
+- [x] 424. Longest Repeating Character Replacement (Medium)
 - [ ] 567. Permutation in String (Medium)
 - [ ] 438. Find All Anagrams in a String (Medium)
 - [ ] 1248. Count Number of Nice Subarrays (Medium)

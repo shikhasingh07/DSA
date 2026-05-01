@@ -32,7 +32,7 @@
 - [x] Mean (Easy)
 - [x] Min By (Easy)
 - [x] Make Counter (Easy)
-- [ ] List Format (Medium)
+- [x] List Format (Medium)
 
 ### OOP / Data Structures
 - [x] Event Emitter (Medium)
