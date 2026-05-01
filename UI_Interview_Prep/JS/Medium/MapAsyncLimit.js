@@ -1,7 +1,8 @@
 async function mapAsyncLimit(iterable, callbackFn, size) {
   let result = [];
-  for(let i = 0 ; i < iterable.length ; i += size){
-    const chunk = iterable.slice(i, i + size).map(callbackFn);
+  const chunkSize = size ?? iterable.length;
+  for(let i = 0 ; i < iterable.length ; i += chunkSize){
+    const chunk = iterable.slice(i, i + chunkSize).map(callbackFn);
     const res = await Promise.all(chunk);
     result.push(...res);
   }
