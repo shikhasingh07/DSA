@@ -9,7 +9,8 @@
       "Bash(mv /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/Utility/* /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/)",
       "Bash(mv /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/OOP/* /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/)",
       "Bash(mv /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/DOM/* /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/)",
-      "Bash(mv /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/BrowserAPIs/* /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/)"
+      "Bash(mv /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/BrowserAPIs/* /Users/shikhasingh/Desktop/daily/DSA/UI_Interview_Prep/JS/)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

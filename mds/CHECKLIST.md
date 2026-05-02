@@ -112,7 +112,7 @@
 - [x] 567. Permutation in String (Medium)
 - [x] 438. Find All Anagrams in a String (Medium)
 - [x] 1248. Count Number of Nice Subarrays (Medium)
-- [ ] 713. Subarray Product Less Than K (Medium)
+- [x] 713. Subarray Product Less Than K (Medium)
 - [ ] 930. Binary Subarrays with Sum (Medium)
 - [ ] 1358. Number of Substrings Containing All Three Characters (Medium)
 - [ ] 2024. Maximize the Confusion of an Exam (Medium)
