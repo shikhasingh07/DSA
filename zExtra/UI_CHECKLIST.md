@@ -40,7 +40,7 @@
 - [x] Deep Equal (Medium)
 - [x] Flatten (Medium)
 - [x] BackboneModel (Hard)
-- [ ] Deep Omit (Medium)
+- [x] Deep Omit (Medium)
 
 ### DOM
 - [x] getElementsByStyle (Medium)
@@ -71,7 +71,7 @@
 - [x] useCycle (Easy)
 - [x] useArray (Medium)
 - [x] useDefault (Easy)
-- [ ] useMap (Easy)
+- [x] useMap (Easy)
 - [ ] useSet (Easy)
 - [ ] useRenderFirst (Easy)
 
