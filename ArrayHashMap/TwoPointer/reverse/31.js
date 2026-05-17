@@ -8,6 +8,8 @@ function reverse(nums, left, right) {
   }
 }
 var nextPermutation = function (nums) {
+
+  // dip
   let i = nums.length - 2;
   while (i >= 0 && nums[i] >= nums[i + 1]) {
     i--;
